@@ -6,21 +6,34 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+ /* 
+ * https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html 
+ */
+
 /**
  *
  * @author jailsonsantos
  */
 
 public class GameVelha extends javax.swing.JFrame {
+    /* # Game Velha */
+    /* ## Jframe extends java.swing.JFrame */
+    /* 
+     * Objeto do pacote javax.swign que inicializa uma
+     * janela vazia. 
+     */
     /**
      * Creates new form GameVelha
      */
     
+    /* String simb = 0 */
     // (LITERAL) Cursor do jogador, serve para definir 
-    // o valor de texto dos botoes de (b1 a b9)
+    // o valor de texto dos botoes de (b1 a b9).
     String simb="O";
     
+    /* Array de String caminho = 9 casas de Array */
     String[] caminho = new String[9];  // Declara o vetor       
+    
     
     int nj=0,j1=0,j2=0,emp=0;
 
@@ -31,6 +44,7 @@ public class GameVelha extends javax.swing.JFrame {
     boolean enc=false;
     
     public GameVelha() {
+        // Inicializa os compontentes no Frame
         initComponents();         
     }
     public void inicializar(){              
@@ -75,39 +89,67 @@ public class GameVelha extends javax.swing.JFrame {
         //Title: "Titulo da janela"
         //e atribui a variavel _nome1_ 
 
-        //Recebe valor para label do jogador1
+        /* idNome */
+        // > Recebe valor para label do nome1
+        /* Define label para o JogadorAtivo */ 
+        /* (Literal) */ idNome = new javax.swing.JLabel();
         nome1 = JOptionPane.showInputDialog(null,"Digite o primeiro nome","Jogador 1",1);
         //Recebe valor para label do jogador2
         nome2=JOptionPane.showInputDialog(null,"Digite o segundo nome ","Jogador 2",1);        
         //e atribui a variavel _nome2_ 
 
-        // atribui o 
+        // atribui o Nome do do Jogador Ativo
+        // a Label idNome, mostrando qual jogador 
+        // deve jogar.
         idNome.setText(nome1);
+
+        //Roda o Método estatistica()
         estatistica();
     }
     
     public void estatistica(){    
-        //    
+        // Define label com nome do jogador1 
+        // juntamente com seu resultado
         estatistica1.setText(nome1 + " = "+j1);
+        // Define label com nome do jogador2 
+        // juntamente com seu resultado    
         estatistica2.setText(nome2 + " = "+j2);
+        // Define label com empates, mostrando
+        // o total de todos os empates
         estatistica3.setText("Empate  = " + emp);
     }
     
     public String simbolo(){     
+        // Define a ~label?~ ~variavel?~ simb ao proximo simbolo
+        //Define o text do idNome com o Jogador Ativo 
         if (simb.equals("O")){
+            // Caso "0" seja o simbolo anterior
+            // atribui "X" a simb
             simb="X";
+            // define o idNome ao nome do Jogador 2 
             idNome.setText(nome2);
         }else{
+            // Caso "X" seja o simbolo anterior
+            // atribui "0" a simb
             simb="O";
+            // define o idNome ao nome do Jogador 1
             idNome.setText(nome1);
         }
+        //Aumenta o numero de jogadas
         nj++;
+        //Retorna a String simbolo
         return simb;
     }
     
     public void resultado(){        
+        // inicia o contador
         int id=1;
+        // sendo o contador id = 1;
+        // enquanto el for menor que 9,
+        // resultando em 8 iterações,
+        // e enc seja falso
         while((id<9)&&(enc==false)){
+
             if (caminho[id].length()==3){
                 if ((caminho[id].equals("XXX"))){
                     JOptionPane.showMessageDialog(null,nome1 + ", você ganhou","Resultado",1);
@@ -151,8 +193,8 @@ public class GameVelha extends javax.swing.JFrame {
         b8 = new javax.swing.JButton();
         b7 = new javax.swing.JButton();
 
-        // Define label para o JogadorAtivo 
-        idNome = new javax.swing.JLabel();
+        /* Define label para o JogadorAtivo */ 
+        /* (Literal) */ idNome = new javax.swing.JLabel();
 
         // Define label para texto 
         estatistica = new javax.swing.JLabel();
