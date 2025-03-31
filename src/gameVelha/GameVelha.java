@@ -15,41 +15,79 @@ public class GameVelha extends javax.swing.JFrame {
     /**
      * Creates new form GameVelha
      */
+    
+    // (LITERAL) Cursor do jogador, serve para definir 
+    // o valor de texto dos botoes de (b1 a b9)
     String simb="O";
+    
     String[] caminho = new String[9];  // Declara o vetor       
+    
     int nj=0,j1=0,j2=0,emp=0;
+
+    // (LITERAL) Nomes dos jogadores
     String nome1="",nome2="";    
+
+    
     boolean enc=false;
     
     public GameVelha() {
         initComponents();         
     }
     public void inicializar(){              
+        // Define o texto vazio para todos os botões 
+        // Reseta o a variavel caminho 
         for(int i=0;i<9;i++){
             caminho[i]="";            
         }
+        /* --- Botões --- */
+        /* Defini Texto Vazio */
+        //1. Insere valor de texto vazio em b1
         b1.setText("");
+        //2. Insere valor de texto vazio em b2
         b2.setText("");
+        //3. Insere valor de texto vazio em b3
         b3.setText("");
+        //4. Insere valor de texto vazio em b4
         b4.setText("");
+        //5. Insere valor de texto vazio em b5
         b5.setText("");
+        //6. Insere valor de texto vazio em b6
         b6.setText("");
+        //7. Insere valor de texto vazio em b7
         b7.setText("");
+        //8. Insere valor de texto vazio em b8
         b8.setText("");
+        //9. Insere valor de texto vazio em b9
         b9.setText("");  
+        
+        //10.
         enc=false;
+        // 11. Executa o método esta estatistica()
         estatistica();   
+        // *rodada
         nj=0;  
     }
     
     public void nomear(){
-        nome1=JOptionPane.showInputDialog(null,"Digite o primeiro nome","Jogador 1",1);
+        //Abre Painel de input e nas configurações default,
+        //com os atributos: 
+        //Texto: "Digite o primeiro nome" 
+        //Title: "Titulo da janela"
+        //e atribui a variavel _nome1_ 
+
+        //Recebe valor para label do jogador1
+        nome1 = JOptionPane.showInputDialog(null,"Digite o primeiro nome","Jogador 1",1);
+        //Recebe valor para label do jogador2
         nome2=JOptionPane.showInputDialog(null,"Digite o segundo nome ","Jogador 2",1);        
+        //e atribui a variavel _nome2_ 
+
+        // atribui o 
         idNome.setText(nome1);
         estatistica();
     }
     
-    public void estatistica(){        
+    public void estatistica(){    
+        //    
         estatistica1.setText(nome1 + " = "+j1);
         estatistica2.setText(nome2 + " = "+j2);
         estatistica3.setText("Empate  = " + emp);
@@ -102,7 +140,7 @@ public class GameVelha extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        // Inicia todos os botões da interface (b1)
         b3 = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
@@ -112,7 +150,11 @@ public class GameVelha extends javax.swing.JFrame {
         b9 = new javax.swing.JButton();
         b8 = new javax.swing.JButton();
         b7 = new javax.swing.JButton();
+
+        // Define label para o JogadorAtivo 
         idNome = new javax.swing.JLabel();
+
+        // Define label para texto 
         estatistica = new javax.swing.JLabel();
         identificador = new javax.swing.JLabel();
         estatistica1 = new javax.swing.JLabel();
